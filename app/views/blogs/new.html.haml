@@ -1,3 +1,7 @@
+- if @blog.errors.any?
+  -@blog.errors.full_messages.each do |msg|
+    = msg
+
 %h3 mini_blog作成画面
 %br
 = form_with(model: @blog, local: true) do |f|
@@ -5,4 +9,5 @@
     = f.label :content ,'投稿内容'
     = f.text_field :content
     = f.submit
-
+%br
+= link_to '全体タイムライン', blogs_path

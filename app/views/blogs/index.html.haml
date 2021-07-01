@@ -2,7 +2,7 @@
 - @blogs.each do |blog|
   %p
     投稿時刻：
-    =blog.created_at
+    = blog.created_at.strftime('%Y/%m/%d %H:%M:%S')
   %p
     = blog.content
     

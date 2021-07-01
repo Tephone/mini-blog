@@ -1,0 +1,9 @@
+%h3 全体タイムライン
+- @blogs.each do |blog|
+  %p
+    投稿時刻：
+    =blog.created_at
+  %p
+    = blog.content
+    
+= link_to 'mini_blogを作成', new_blog_path

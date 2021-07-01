@@ -1,0 +1,8 @@
+%h3 mini_blog作成画面
+%br
+= form_with(model: @blog, local: true) do |f|
+  .conten_label
+    = f.label :content ,'投稿内容'
+    = f.text_field :content
+    = f.submit
+

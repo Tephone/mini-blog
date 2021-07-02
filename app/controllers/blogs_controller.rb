@@ -1,4 +1,5 @@
 class BlogsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create] 
   def index
     @blogs = Blog.all
   end
@@ -8,7 +9,8 @@ class BlogsController < ApplicationController
   end
 
   def create
-    @blog = Blog.new(params.require(:blog).permit(:content))
+    # @blog = Blog.new(params.require(:blog).permit(:content))
+    @blog = current_user.blogs.build(params.require(:blog).permit(:content))
     if @blog.save
       redirect_to blogs_path, notice: 'mini_blogを作成しました'
     else

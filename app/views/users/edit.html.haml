@@ -1,0 +1,18 @@
+- if @user.errors.any?
+  - @user.errors.full_messages.each do |msg|
+    = msg
+%h4 編集ページ
+= form_with(model:@user, lacal:true) do |f|
+  .name_label
+    = f.label :name
+    = f.text_field :name
+  .email_label
+    = f.label :email
+    = f.email_field :email
+  .profile_label
+    = f.label :profile
+    = f.text_field :profile
+  .blog_url_label
+    = f.label :blog_url
+    = f.text_field :blog_url
+  = f.submit

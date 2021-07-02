@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(params.require(:user).permit(:name, :email, :profile, :blog_url))
-      redirect_to blogs_path
+      redirect_to user_path, notice: '編集しました'
     else
       render :edit
     end

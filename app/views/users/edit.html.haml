@@ -1,3 +1,6 @@
+- if @user.errors.any?
+  - @user.errors.full_messages.each do |msg|
+    = msg
 %h4 編集ページ
 = form_with(model:@user, lacal:true) do |f|
   .name_label

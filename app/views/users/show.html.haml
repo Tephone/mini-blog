@@ -5,9 +5,15 @@
   = @user.name
 
 %p
+  email：
+  = @user.email
+
+%p
   プロフィール：
   = @user.profile
 
 %p
   Blog_url：
-  = @user.blog_url
+  = link_to "#{@user.blog_url}",  @user.blog_url
+
+= link_to '編集', edit_user_path
